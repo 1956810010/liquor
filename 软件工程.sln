@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "软件工程", "软件工程\软件工程.vcxproj", "{D6142849-366F-4A8A-9975-C2320EB3AB86}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "单链表操作", "软件工程\软件工程.vcxproj", "{D6142849-366F-4A8A-9975-C2320EB3AB86}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "哈夫曼树", "哈夫曼树\哈夫曼树.vcxproj", "{5AFB1C13-A942-4641-A7E1-4B28B0FBF117}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{D6142849-366F-4A8A-9975-C2320EB3AB86}.Release|x64.Build.0 = Release|x64
 		{D6142849-366F-4A8A-9975-C2320EB3AB86}.Release|x86.ActiveCfg = Release|Win32
 		{D6142849-366F-4A8A-9975-C2320EB3AB86}.Release|x86.Build.0 = Release|Win32
+		{5AFB1C13-A942-4641-A7E1-4B28B0FBF117}.Debug|x64.ActiveCfg = Debug|x64
+		{5AFB1C13-A942-4641-A7E1-4B28B0FBF117}.Debug|x64.Build.0 = Debug|x64
+		{5AFB1C13-A942-4641-A7E1-4B28B0FBF117}.Debug|x86.ActiveCfg = Debug|Win32
+		{5AFB1C13-A942-4641-A7E1-4B28B0FBF117}.Debug|x86.Build.0 = Debug|Win32
+		{5AFB1C13-A942-4641-A7E1-4B28B0FBF117}.Release|x64.ActiveCfg = Release|x64
+		{5AFB1C13-A942-4641-A7E1-4B28B0FBF117}.Release|x64.Build.0 = Release|x64
+		{5AFB1C13-A942-4641-A7E1-4B28B0FBF117}.Release|x86.ActiveCfg = Release|Win32
+		{5AFB1C13-A942-4641-A7E1-4B28B0FBF117}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

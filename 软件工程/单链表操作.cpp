@@ -42,7 +42,7 @@ void delet(linklist *head,int m)
 }
 void insert(linklist *head,int m,char ch)
 {
-	linklist* p, * s;
+	linklist *p, *s;
 	p = head;
 	for (int i = 0; i < m - 1; i++)
 	{
