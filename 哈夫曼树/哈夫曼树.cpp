@@ -29,22 +29,22 @@ void HUFFMAN(hufmtree tree[])
 		tree[i].parent = 0;
 		tree[i].lchild = 0;
 		tree[i].rchild = 0;
-		tree[i].weight = 0;
+		tree[i].weight = 0.0;
 		tree[i].data = '0';
 	}
 	for (i = 0; i < n; i++)
 	{
 		scanf_s("%f", &f);
-		tree[i].lchild = f;
-		scanf_s("%c", &ch);
+		tree[i].weight = f;
+		scanf_s(" %c", &ch);
 		tree[i].data = ch;
 	}
 	for (i = n; i < m; i++)
 	{
 		p1 = p2 = 0;
 		small1 = small2 = Maxval;
-		for (j = 0; j < i - 1; j++)
-			if(tree[j].parent==0)
+		for (j = 0; j <= i - 1; j++)
+			if (tree[j].parent == 0)
 				if (tree[j].weight < small1)
 				{
 					small2 = small1;
@@ -64,7 +64,7 @@ void HUFFMAN(hufmtree tree[])
 		tree[i].weight = tree[p1].weight + tree[p2].weight;
 	}
 }
-void HUFFMANCODE(codetype code[],hufmtree tree[])
+void HUFFMANCODE(codetype code[], hufmtree tree[])
 {
 	int i, c, p;
 	codetype cd;
@@ -93,10 +93,10 @@ void HUFFMANCODE(codetype code[],hufmtree tree[])
 }
 void HUFFMANDECODE(codetype code[], hufmtree tree[])
 {
-	int i,b;
+	int i, b;
 	int endflag = 2;
 	i = m - 1;
-	scanf_s("%ld", &b);
+	scanf_s("%1d", &b);
 	while (b != endflag)
 	{
 		if (b == 0)
@@ -108,7 +108,7 @@ void HUFFMANDECODE(codetype code[], hufmtree tree[])
 			putchar(code[i].data);
 			i = m - 1;
 		}
-		scanf_s("%1d",&b);
+		scanf_s("%1d", &b);
 	}
 	if ((tree[i].lchild != 0) && (i != m - 1))
 		printf("\nERROR\n");
@@ -122,8 +122,4 @@ int main()
 	printf("\n¿ªÊ¼ÒëÂë£¬ÇëÊäÈëÃÜÂë\n");
 	HUFFMANDECODE(code, tree);
 	printf("\n");
-
-
-
-
 }
