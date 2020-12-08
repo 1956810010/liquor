@@ -34,9 +34,8 @@ void HUFFMAN(hufmtree tree[])
 	}
 	for (i = 0; i < n; i++)
 	{
-		scanf_s("%f", &f);
+		scanf_s("%f %c",&f,&ch);
 		tree[i].weight = f;
-		scanf_s(" %c", &ch);
 		tree[i].data = ch;
 	}
 	for (i = n; i < m; i++)
@@ -115,12 +114,26 @@ void HUFFMANDECODE(codetype code[], hufmtree tree[])
 }
 void DLR(hufmtree *T)
 {
-	if(T->data!='0')
 	printf("%c", T->data);
 	if (T->lchild==NULL&&T->rchild==NULL) return;
 	DLR(&tree[T->lchild]);
 	DLR(&tree[T->rchild]);
 }
+void LDR(hufmtree *T)
+{
+	if (T->lchild == NULL && T->rchild == NULL) { printf("%c", T->data); return; }
+	LDR(&tree[T->lchild]);
+	printf("%c", T->data);
+	LDR(&tree[T->rchild]);
+}
+void LRD(hufmtree* T)
+{
+	if (T->lchild == NULL && T->rchild == NULL) { printf("%c", T->data); return; }
+	LRD(&tree[T->lchild]);
+	LRD(&tree[T->rchild]);
+	printf("%c", T->data);
+}
+
 int GEN(hufmtree tree[])
 {
 	int c, p;
@@ -141,8 +154,13 @@ int main()
 	printf("\n编码结果\n");
 	HUFFMANCODE(code, tree);
 	b = GEN(tree);
+	printf("\n先序遍历：");
 	DLR(&tree[b]);
-	printf("\n开始译码，请输入密码\n");
+	printf("\n中序遍历：");
+	LDR(&tree[b]);
+	printf("\n后序遍历：");
+	LRD(&tree[b]);
+	printf("\n\n开始译码，请输入密码\n");
 	HUFFMANDECODE(code, tree);
 	printf("\n");
 }
