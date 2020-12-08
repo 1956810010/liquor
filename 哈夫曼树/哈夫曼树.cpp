@@ -113,12 +113,35 @@ void HUFFMANDECODE(codetype code[], hufmtree tree[])
 	if ((tree[i].lchild != 0) && (i != m - 1))
 		printf("\nERROR\n");
 }
+void DLR(hufmtree *T)
+{
+	if(T->data!='0')
+	printf("%c", T->data);
+	if (T->lchild==NULL&&T->rchild==NULL) return;
+	DLR(&tree[T->lchild]);
+	DLR(&tree[T->rchild]);
+}
+int GEN(hufmtree tree[])
+{
+	int c, p;
+	c = 0;
+	p = tree[c].parent;
+	while (p != 0)
+	{
+		c = p;
+		p = tree[c].parent;
+	}
+	return c;
+}
 int main()
 {
+	int b;
 	printf("输入结点的权值和结点字母，用空格隔开：（如0.4 a）\n");
 	HUFFMAN(tree);
 	printf("\n编码结果\n");
 	HUFFMANCODE(code, tree);
+	b = GEN(tree);
+	DLR(&tree[b]);
 	printf("\n开始译码，请输入密码\n");
 	HUFFMANDECODE(code, tree);
 	printf("\n");
