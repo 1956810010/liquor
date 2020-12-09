@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define n 6
+#define n 6 
 #define m 2*n-1
 #define Maxval 1
 typedef char datatype;
@@ -126,7 +126,7 @@ void LDR(hufmtree *T)
 	printf("%c", T->data);
 	LDR(&tree[T->rchild]);
 }
-void LRD(hufmtree* T)
+void LRD(hufmtree *T)
 {
 	if (T->lchild == NULL && T->rchild == NULL) { printf("%c", T->data); return; }
 	LRD(&tree[T->lchild]);
@@ -134,32 +134,18 @@ void LRD(hufmtree* T)
 	printf("%c", T->data);
 }
 
-int GEN(hufmtree tree[])
-{
-	int c, p;
-	c = 0;
-	p = tree[c].parent;
-	while (p != 0)
-	{
-		c = p;
-		p = tree[c].parent;
-	}
-	return c;
-}
 int main()
 {
-	int b;
 	printf("输入结点的权值和结点字母，用空格隔开：（如0.4 a）\n");
 	HUFFMAN(tree);
 	printf("\n编码结果\n");
 	HUFFMANCODE(code, tree);
-	b = GEN(tree);
 	printf("\n先序遍历：");
-	DLR(&tree[b]);
+	DLR(&tree[10]);
 	printf("\n中序遍历：");
-	LDR(&tree[b]);
+	LDR(&tree[10]);
 	printf("\n后序遍历：");
-	LRD(&tree[b]);
+	LRD(&tree[10]);
 	printf("\n\n开始译码，请输入密码\n");
 	HUFFMANDECODE(code, tree);
 	printf("\n");
