@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define n 6 
+#define n 6
 #define m 2*n-1
 #define Maxval 1
 typedef char datatype;
@@ -114,24 +114,25 @@ void HUFFMANDECODE(codetype code[], hufmtree tree[])
 }
 void DLR(hufmtree *T)
 {
-	printf("%c", T->data);
-	if (T->lchild==NULL&&T->rchild==NULL) return;
+	
+	if (T->lchild==NULL&&T->rchild==NULL) { printf("%c ", T->data); return; }
+	else printf(" %.2f ", T->weight);
 	DLR(&tree[T->lchild]);
 	DLR(&tree[T->rchild]);
 }
 void LDR(hufmtree *T)
 {
-	if (T->lchild == NULL && T->rchild == NULL) { printf("%c", T->data); return; }
+	if (T->lchild == NULL && T->rchild == NULL) { printf("%c ", T->data); return; }
 	LDR(&tree[T->lchild]);
-	printf("%c", T->data);
+	printf(" %.2f ", T->weight);
 	LDR(&tree[T->rchild]);
 }
 void LRD(hufmtree *T)
 {
-	if (T->lchild == NULL && T->rchild == NULL) { printf("%c", T->data); return; }
+	if (T->lchild == NULL && T->rchild == NULL) { printf("%c ", T->data); return; }
 	LRD(&tree[T->lchild]);
 	LRD(&tree[T->rchild]);
-	printf("%c", T->data);
+	printf(" %.2f ", T->weight);
 }
 
 int main()
