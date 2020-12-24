@@ -11,7 +11,7 @@ void create_seq(Stable *list)
 	printf("请输入顺序表的内容：\n");
 	for (i = 1; i <= list->length; i++)
 	{
-		printf("list.elem[%d].key=", i);
+		printf("第%d个元素：", i);
 		scanf_s("%d", &list->elem[i]);
 	}
 }
@@ -46,7 +46,7 @@ int bin_seach(Stable *list, int k,int low,int high)
 	if (list->elem[mid]==k)
 	{
 		printf("查找成功\n");
-		printf("list[%d]=%d\n",mid,k);
+		printf("第%d个元素是：%d\n",mid,k);
 		return (mid);
 	}
 	else
@@ -63,14 +63,19 @@ int main()
 	Stable *list,table;
 	int i,key;
 	list = &table;
-	printf(" 请输入线性表的长度：");
+	printf("请输入线性表的长度：");
 	scanf_s("%d", &list->length);
 	create_seq(list);
 	sort_seq(list);
-	printf("排序后的数据\n");
+	printf("排序后的数据：\n");
 	for (i = 1; i <= list->length; i++)
-		printf("list.elem[%d].key=%d\n", i, list->elem[i]);
+		printf("第%d元素是：%d\n", i, list->elem[i]);
 	printf("\n输入查找的值：");
 	scanf_s("%d", &key);
-	bin_seach(list, key,1,list->length);
+	while (key != -1)
+	{
+		bin_seach(list, key, 1, list->length);
+		printf("\n输入查找的值：");
+		scanf_s("%d", &key);
+	}
 }

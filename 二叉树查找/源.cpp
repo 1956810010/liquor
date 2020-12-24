@@ -55,14 +55,14 @@ int main()
 	int k;
 	bnode* p;
 	p = NULL;
-	printf("请输入二叉树结点的值，输入0结束：\n");
+	printf("请输入二叉树结点的值，输入-1结束：\n");
 	scanf_s("%d",&k);
 	p = (bnode*)malloc(sizeof(bnode));
 	p->key = k;
 	p->lchild = NULL;
 	p->rchild = NULL;
 	scanf_s("%d",&k);
-	while (k > 0)
+	while (k!=-1)
 	{
 		ins_bitree(p,k);
 		scanf_s("%d",&k);
@@ -72,5 +72,10 @@ int main()
 	inorder(p);
 	printf("\n请输入查找的值:\n");
 	scanf_s("%d",&k);
-	bit_search(p, k);
+	while (k != -1)
+	{
+		bit_search(p, k);
+		printf("\n输入查找的值：");
+		scanf_s("%d", &k);
+	}
 }
